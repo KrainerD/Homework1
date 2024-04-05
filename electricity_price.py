@@ -29,8 +29,8 @@ def electricity_prices(
     CO2_price,
     emission_factor,
     efficiency,
-    n, 
-    r, 
+    n,
+    r,
     T,
 ):
     return (
@@ -53,5 +53,5 @@ def Bezugsgroessen(U_N_eff, I_Str_N, f_N, T_R):
 
 
 print(
-  round(electricity_prices(1000000, 10, 1, 1, 50 , 50, 1.5 , 0.75, 15, 0.06, 3000), 3)
+    round(electricity_prices(1000000, 10, 1, 1, 50 , 50, 1.5 , 0.75, 15, 0.06, 3000), 3)
 )
