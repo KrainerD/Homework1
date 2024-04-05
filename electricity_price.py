@@ -9,7 +9,7 @@ import numpy as np
 
 
 def CRF(n, r):
-    return ((1 + r)**n * r) / ((1 + r)**n - 1)
+    return ((1 + r) ** n * r) / ((1 + r) ** n - 1)
 
 
 def fuel_costs(fuel_price, efficiency):
@@ -20,8 +20,25 @@ def CO2_costs(CO2_price, emission_factor, efficiency):
     return (CO2_price * emission_factor) / efficiency
 
 
-def electricity_prices(I, Power, operational_costs, fix_costs,  fuel_price, CO2_price, emission_factor, efficiency, n, r, T):
-    return (CRF(n, r) * I / Power + fix_costs) / T + operational_costs + CO2_costs(CO2_price, emission_factor, efficiency) + fuel_costs(fuel_price, efficiency)
+def electricity_prices(
+        I, 
+        Power, 
+        operational_costs, 
+        fix_costs,  
+        fuel_price, 
+        CO2_price, 
+        emission_factor, 
+        efficiency, 
+        n, 
+        r, 
+        T,
+):
+    return (
+        (CRF(n, r) * I / Power + fix_costs) / T 
+        + operational_costs 
+        + CO2_costs(CO2_price, emission_factor, efficiency) 
+        + fuel_costs(fuel_price, efficiency)
+    )
 
 
 def Bezugsgroessen(U_N_eff, I_Str_N, f_N, T_R):
@@ -35,4 +52,6 @@ def Bezugsgroessen(U_N_eff, I_Str_N, f_N, T_R):
     return U_bez, I_bez, Z_bez, omega_el_bez, psi_bez, tau_R
 
 
-print(round(electricity_prices(1000000, 10, 1, 1, 50 , 50, 1.5 , 0.75, 15, 0.06, 3000), 3))
+print(
+      round(electricity_prices(1000000, 10, 1, 1, 50 , 50, 1.5 , 0.75, 15, 0.06, 3000), 3)
+)
