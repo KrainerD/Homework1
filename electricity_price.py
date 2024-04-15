@@ -36,7 +36,7 @@ def electricity_prices(
     return (
         (CRF(n, r) * I / Power + fix_costs) / T
         + operational_costs
-        + CO2_costs(CO2_price, emission_factor, efficiency)
+        #+ CO2_costs(CO2_price, emission_factor, efficiency) #to make test fail
         + fuel_costs(fuel_price, efficiency)
     )
 
